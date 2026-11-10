@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Jackpot 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+
+    background:linear-gradient(
+        135deg,
+        #fff0f6,
+        #ffe4ee,
+        #fff7fa
+    );
+
+    font-family:'Poppins',sans-serif;
+    overflow:hidden;
+}
+
+.container{
+    text-align:center;
+    max-width:500px;
+    width:100%;
+}
+
+h1{
+    font-family:'Great Vibes',cursive;
+    color:#ff4f8b;
+    font-size:clamp(3rem,8vw,5rem);
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.machine{
+    background:white;
+    border-radius:25px;
+    padding:30px;
+    box-shadow:0 15px 40px rgba(255,79,139,.2);
+
+    position:relative;
+}
+
+.slots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+}
+
+.slot{
+    width:90px;
+    height:90px;
+
+    border-radius:15px;
+
+    background:#fff7fa;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:3rem;
+
+    border:3px solid #ffd3e4;
+}
+
+.handle-row{
+    margin-top:25px;
+}
+
+.handle{
+    border:none;
+    cursor:pointer;
+
+    background:linear-gradient(
+        45deg,
+        #ff6fa5,
+        #ff4f8b
+    );
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:bold;
+    font-size:1rem;
+
+    transition:.3s;
+}
+
+.handle:hover{
+    transform:scale(1.05);
+}
+
+.message{
+    margin-top:20px;
+    color:#ff4f8b;
+    font-weight:600;
+}
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    animation:float linear infinite;
+    opacity:.3;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh);
+    }
+    to{
+        transform:translateY(-100px);
+    }
+}
+
+.win{
+    animation:bounce .7s infinite;
+}
+
+@keyframes bounce{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts">
+    <div class="heart" style="left:10%;font-size:25px;animation-duration:10s;">💖</div>
+    <div class="heart" style="left:25%;font-size:18px;animation-duration:15s;">💕</div>
+    <div class="heart" style="left:40%;font-size:20px;animation-duration:12s;">💖</div>
+    <div class="heart" style="left:70%;font-size:28px;animation-duration:18s;">💕</div>
+    <div class="heart" style="left:90%;font-size:18px;animation-duration:11s;">💖</div>
+</div>
+
+<div class="container">
+
+    <h1>Love Jackpot 💖</h1>
+
+    <p class="subtitle">
+        Pull the lucky handle and reveal your reward ✨
+    </p>
+
+    <div class="machine">
+
+        <div class="slots">
+            <div class="slot" id="slot1">💕</div>
+            <div class="slot" id="slot2">💖</div>
+            <div class="slot" id="slot3">💕</div>
+        </div>
+
+        <div class="handle-row">
+            <button class="handle" id="spinBtn">
+                🎰 Pull Handle
+            </button>
+        </div>
+
+        <div class="message" id="message">
+            Match three hearts to unlock the surprise ❤️
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const slot1=document.getElementById("slot1");
+const slot2=document.getElementById("slot2");
+const slot3=document.getElementById("slot3");
+
+const spinBtn=document.getElementById("spinBtn");
+const message=document.getElementById("message");
+
+const symbols=[
+    "💖",
+    "💕",
+    "💘",
+    "❤️",
+    "😍"
+];
+
+let spinning=false;
+
+spinBtn.addEventListener("click",()=>{
+
+    if(spinning) return;
+
+    spinning=true;
+
+    spinBtn.disabled=true;
+
+    let count=0;
+
+    const spin=setInterval(()=>{
+
+        slot1.textContent=
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+        slot2.textContent=
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+        slot3.textContent=
+        symbols[Math.floor(Math.random()*symbols.length)];
+
+        count++;
+
+        if(count>=20){
+
+            clearInterval(spin);
+
+            // Always win 😏❤️
+
+            slot1.textContent="💖";
+            slot2.textContent="💖";
+            slot3.textContent="💖";
+
+            slot1.classList.add("win");
+            slot2.classList.add("win");
+            slot3.classList.add("win");
+
+            message.innerHTML=
+            "🎉 JACKPOT! LOVE WINS! 🎉";
+
+            setTimeout(()=>{
+
+                window.location.href="Gift.html";
+
+            },2500);
+
+        }
+
+    },100);
+
+});
+
+</script>
+
+</body>
+</html>

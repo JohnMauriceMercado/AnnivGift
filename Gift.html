@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For My Love ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:30px;
+
+    background:linear-gradient(
+        135deg,
+        #fff5f8,
+        #ffe8f1,
+        #fff8fb
+    );
+
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+.container{
+    text-align:center;
+    max-width:800px;
+    width:100%;
+    animation:fadeIn 1.5s ease;
+}
+
+.gift-photo{
+    width:min(100%,500px);
+    border-radius:25px;
+
+    box-shadow:
+        0 15px 35px rgba(255,105,180,.25);
+
+    border:6px solid white;
+}
+
+.title{
+    margin-top:25px;
+    color:#ff4f8b;
+
+    font-family:'Great Vibes',cursive;
+    font-size:clamp(3rem,8vw,5rem);
+    font-weight:bold;
+
+    line-height:1.2;
+}
+
+.message{
+    margin-top:15px;
+
+    color:#666;
+
+    line-height:1.9;
+
+    font-size:clamp(
+        1rem,
+        2.8vw,
+        1.2rem
+    );
+}
+
+.signature{
+    margin-top:25px;
+
+    color:#ff4f8b;
+
+    font-family:'Great Vibes',cursive;
+    font-size:2.5rem;
+}
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    opacity:.3;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts">
+    <div class="heart" style="left:10%;font-size:22px;animation-duration:10s;">💖</div>
+    <div class="heart" style="left:30%;font-size:18px;animation-duration:15s;">💕</div>
+    <div class="heart" style="left:50%;font-size:24px;animation-duration:12s;">💘</div>
+    <div class="heart" style="left:70%;font-size:20px;animation-duration:18s;">💖</div>
+    <div class="heart" style="left:90%;font-size:18px;animation-duration:13s;">💕</div>
+</div>
+
+<div class="container">
+
+    <!-- PHOTO NG GIFT -->
+    <img src="gift.png" alt="Gift" class="gift-photo">
+
+    <h1 class="title">
+        Here's my gift for you my love.<br>
+        I love you! ❤️
+    </h1>
+
+    <p class="message">
+        Thank you for bringing happiness, warmth, and love into my life.
+        Every day with you is a beautiful adventure, and every moment becomes
+        special because you're part of it.
+        <br><br>
+        This little surprise may never be enough to show how much you mean to me,
+        but I hope it reminds you that you are loved, appreciated, and cherished
+        more than words can ever explain.
+        <br><br>
+        No matter where life takes us, I will always choose you,
+        today, tomorrow, and every day after that. 💖
+    </p>
+
+    <div class="signature">
+        Love,<br>
+        Maurice ❤️
+    </div>
+
+</div>
+
+</body>
+</html>

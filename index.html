@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Romantic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <title>For Ghenica ❤️</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            min-height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            text-align:center;
+            padding:25px;
+
+            background:linear-gradient(
+                135deg,
+                #fff8fa,
+                #ffeaf2,
+                #fff5f8
+            );
+
+            font-family:'Poppins',sans-serif;
+            overflow:hidden;
+        }
+
+        .container{
+            max-width:600px;
+            width:100%;
+            animation:fadeIn 1.5s ease;
+        }
+
+        .heart{
+            font-size:2rem;
+            margin-bottom:15px;
+            animation:pulse 1.5s infinite;
+        }
+
+        .title{
+            font-family:'Great Vibes',cursive;
+            font-size:clamp(3rem,10vw,5rem);
+            color:#ff4f8b;
+            line-height:1.2;
+            margin-bottom:15px;
+            text-shadow:0 3px 15px rgba(255,79,139,.15);
+        }
+
+        .subtitle{
+            font-size:clamp(1rem,4vw,1.4rem);
+            color:#6d6d6d;
+            margin-bottom:40px;
+            font-weight:300;
+        }
+
+        .btn{
+            display:inline-block;
+            text-decoration:none;
+            color:white;
+
+            padding:16px 35px;
+            border-radius:50px;
+
+            background:linear-gradient(
+                45deg,
+                #ff6fa5,
+                #ff4f8b
+            );
+
+            font-size:1rem;
+            font-weight:600;
+
+            box-shadow:0 8px 25px rgba(255,79,139,.35);
+
+            transition:.3s ease;
+        }
+
+        .btn:hover{
+            transform:translateY(-3px) scale(1.03);
+            box-shadow:0 12px 30px rgba(255,79,139,.45);
+        }
+
+        @keyframes pulse{
+            0%,100%{
+                transform:scale(1);
+            }
+            50%{
+                transform:scale(1.2);
+            }
+        }
+
+        @keyframes fadeIn{
+            from{
+                opacity:0;
+                transform:translateY(20px);
+            }
+            to{
+                opacity:1;
+                transform:translateY(0);
+            }
+        }
+
+        /* Floating Hearts */
+        .bg-heart{
+            position:absolute;
+            color:rgba(255,111,165,.18);
+            animation:float 10s linear infinite;
+        }
+
+        @keyframes float{
+            from{
+                transform:translateY(100vh);
+            }
+            to{
+                transform:translateY(-120vh);
+            }
+        }
+
+        .h1{left:10%;font-size:30px;animation-duration:10s;}
+        .h2{left:25%;font-size:22px;animation-duration:14s;}
+        .h3{left:50%;font-size:35px;animation-duration:12s;}
+        .h4{left:70%;font-size:25px;animation-duration:16s;}
+        .h5{left:90%;font-size:30px;animation-duration:11s;}
+    </style>
+</head>
+<body>
+
+    <div class="bg-heart h1">❤</div>
+    <div class="bg-heart h2">❤</div>
+    <div class="bg-heart h3">❤</div>
+    <div class="bg-heart h4">❤</div>
+    <div class="bg-heart h5">❤</div>
+
+    <div class="container">
+
+        <div class="heart">💖</div>
+
+        <h1 class="title">
+            Welcome Ghenica Mylove 😘
+        </h1>
+
+        <p class="subtitle">
+            Maurice has a surprise for you!
+        </p>
+
+        <a href="Lock.html" class="btn">
+            Open your surprise ✨
+        </a>
+
+    </div>
+
+</body>
+</html>

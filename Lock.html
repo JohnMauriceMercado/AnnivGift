@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>iPhone Passcode Login</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:-apple-system,BlinkMacSystemFont,sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url('https://images.unsplash.com/photo-1506744038136-46273834b3fb')
+    center/cover no-repeat;
+}
+
+.overlay{
+    width:100%;
+    height:100%;
+    backdrop-filter:blur(15px);
+    background:rgba(0,0,0,.25);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.lock-screen{
+    color:white;
+    text-align:center;
+}
+
+.time{
+    font-size:72px;
+    font-weight:200;
+    margin-bottom:5px;
+}
+
+.date{
+    font-size:20px;
+    margin-bottom:50px;
+}
+
+.title{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-bottom:40px;
+}
+
+.dot{
+    width:16px;
+    height:16px;
+    border:2px solid white;
+    border-radius:50%;
+}
+
+.dot.filled{
+    background:white;
+}
+
+.keypad{
+    display:grid;
+    grid-template-columns:repeat(3,80px);
+    gap:15px;
+    justify-content:center;
+}
+
+.key{
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.4);
+    background:rgba(255,255,255,.15);
+    color:white;
+    font-size:28px;
+    cursor:pointer;
+    backdrop-filter:blur(5px);
+}
+
+.key:hover{
+    background:rgba(255,255,255,.25);
+}
+
+.action{
+    margin-top:20px;
+    color:white;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="overlay">
+    <div class="lock-screen">
+
+        <div class="time" id="time"></div>
+        <div class="date" id="date"></div>
+
+        <div class="title">Enter your Iphone Xs Passcode</div>
+
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <div class="keypad">
+            <button class="key" onclick="press(1)">1</button>
+            <button class="key" onclick="press(2)">2</button>
+            <button class="key" onclick="press(3)">3</button>
+            <button class="key" onclick="press(4)">4</button>
+            <button class="key" onclick="press(5)">5</button>
+            <button class="key" onclick="press(6)">6</button>
+            <button class="key" onclick="press(7)">7</button>
+            <button class="key" onclick="press(8)">8</button>
+            <button class="key" onclick="press(9)">9</button>
+            <div></div>
+            <button class="key" onclick="press(0)">0</button>
+            <div></div>
+        </div>
+
+        <div class="action" onclick="clearPass()">Delete</div>
+
+    </div>
+</div>
+
+<script>
+
+const correctPasscode = "426329";
+let entered = "";
+
+function press(num){
+
+    if(entered.length >= 6) return;
+
+    entered += num;
+
+    updateDots();
+
+    if(entered.length === 6){
+        setTimeout(()=>{
+            if(entered === correctPasscode){
+                alert("✅ Access Granted");
+                window.location.href = "index_6853.html";
+            }else{
+                alert("❌ Incorrect Passcode");
+                entered = "";
+                updateDots();
+            }
+        },200);
+    }
+}
+
+function updateDots(){
+    let dots = document.querySelectorAll(".dot");
+
+    dots.forEach((dot,index)=>{
+        dot.classList.toggle("filled", index < entered.length);
+    });
+}
+
+function clearPass(){
+    entered = entered.slice(0,-1);
+    updateDots();
+}
+
+function updateClock(){
+    const now = new Date();
+
+    document.getElementById("time").innerHTML =
+        now.toLocaleTimeString([],{
+            hour:"2-digit",
+            minute:"2-digit"
+        });
+
+    document.getElementById("date").innerHTML =
+        now.toLocaleDateString([],{
+            weekday:"long",
+            month:"long",
+            day:"numeric"
+        });
+}
+
+updateClock();
+setInterval(updateClock,1000);
+
+</script>
+
+</body>
+</html>

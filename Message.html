@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary, Ghenica! ❤️</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Sacramento&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff5f7;
+            color: #4a4a4a;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Container */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Hero Section */
+        header {
+            text-align: center;
+            padding: 80px 20px 40px;
+        }
+
+        header h1 {
+            font-family: 'Sacramento', cursive;
+            font-size: 4.5rem;
+            color: #d63384;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 300;
+        }
+
+        /* Main Photo / Card Banner */
+        .main-banner {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(214, 51, 132, 0.1);
+            text-align: center;
+            margin-bottom: 40px;
+            border: 2px dashed #ffb6c1;
+        }
+
+        .main-banner img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 15px;
+        }
+
+        .main-banner h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .main-banner p {
+            color: #771234;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Section Titles */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-family: 'Sacramento', cursive;
+            color: #d63384;
+            margin: 50px 0 30px;
+        }
+
+        /* Reasons Grid */
+        .reasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+
+        .reason-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid #ff69b4;
+            text-align: center;
+        }
+
+        .reason-card i {
+            font-size: 2rem;
+            color: #ff69b4;
+            margin-bottom: 15px;
+        }
+
+        .reason-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .reason-card p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Timeline Section */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 50px;
+            border-left: 3px solid #ffb6c1;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -37px;
+            top: 5px;
+            width: 15px;
+            height: 15px;
+            background: #d63384;
+            border-radius: 50%;
+            border: 3px solid #fff5f7;
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .timeline-content span {
+            font-size: 0.85rem;
+            color: #d63384;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .timeline-content h4 {
+            font-size: 1.2rem;
+            margin: 5px 0 8px;
+            color: #333;
+        }
+
+        .timeline-content p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Love Footer / Interactive Section */
+        .love-footer {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(255, 117, 140, 0.3);
+            margin-bottom: 60px;
+        }
+
+        .love-footer h3 {
+            font-size: 2.5rem;
+            font-family: 'Sacramento', cursive;
+            margin-bottom: 15px;
+        }
+
+        .love-footer p {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #d63384;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Surprise Message Box */
+        .surprise-msg {
+            display: none;
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.35);
+            padding: 20px;
+            border-radius: 15px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>Happy Anniversary, Ghenica MyLove!</h1>
+            <p>You was the greatest gift from above I have ❤️</p>
+        </header>
+
+        <!-- Main Banner -->
+        <div class="main-banner">
+            <img src="Mylove.jpg" alt="Our Memories" style="width: 100%; max-height: 400px; object-fit: cover; border-radius: 15px; background: #ffe6eb;"> 
+            <h2>To More Years Together</h2>
+            <p>Thank you for all the laughter, the love, and for being my favorite person every single day. Life is infinitely better because you're in it.</p>
+        </div>
+
+        <!-- Timeline Section -->
+        <h2 class="section-title">Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span>The Beginning</span>
+                    <h4>When We First Met</h4>
+                    <p>Thank you for your treat🤣 You make me feel so handsome.😁</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span>Milestone</span>
+                    <h4>Making It Official</h4>
+                    <p>I thought it was just a simple rides. I didn't think it would become a very special day. 🥹 So much joy in my heart at that time🥰</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <span>Today & Beyond</span>
+                    <h4>Happy Anniversary!</h4>
+                    <p>Celebrating all our sweet memories and looking forward to countless more adventures ahead.💝🎉💑</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reasons Why I Love You -->
+        <h2 class="section-title">Why I Love You</h2>
+        <div class="reasons-grid">
+            <div class="reason-card">
+                <i class="fas fa-smile-beam"></i>
+                <h3>Your Smile</h3>
+                <p>It instantly brightens up my worst days and melts my heart every single time.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-hands-holding-child"></i>
+                <h3>Your Heart Kindness</h3>
+                <p>The way you love for the people around you inspires me to be a better person.</p>
+            </div>
+            <div class="reason-card">
+                <i class="fas fa-heart-pulse"></i>
+                <h3>My Safe Space</h3>
+                <p>With you, I can completely be myself without any hesitations or doubts.</p>
+            </div>
+        </div>
+
+        <!-- Interactive Love Footer -->
+        <div class="love-footer">
+            <h3>Forever & Always</h3>
+            <p>Click the button below to seal our anniversary wish for today!</p>
+            
+            <!-- Standard button with direct event click -->
+            <button class="cta-btn" id="magicBtn">Click mo 'to, Mahal ❤️</button>
+            
+            <!-- Pop-up Message -->
+            <div class="surprise-msg" id="surpriseMsg">
+                <p style="font-size: 2.2rem; margin-bottom: 8px;">🌹 💐 🌹</p>
+                <p>Yay! Mahal na mahal kita, Ghenica! Cheers to more anniversaries to come! 🥰🥂</p>
+            </div>
+        </div>
+
+        <footer>
+            Made with all my love, especially for you.
+        </footer>
+    </div>
+
+    <script>
+        // Gumamit tayo ng standard DOMContentLoaded para hihintayin munang mag-load ang buong page bago i-bind ang button
+        document.addEventListener("DOMContentLoaded", function() {
+    const btn = document.getElementById("magicBtn");
+
+    btn.addEventListener("click", function() {
+
+        // Optional: maliit na animation effect
+        btn.textContent = "Opening your surprise... ❤️";
+        btn.disabled = true;
+
+        setTimeout(function() {
+            window.location.href = "reward.html";
+        }, 1000);
+
+    });
+});
+    </script>
+</body>
+</html>

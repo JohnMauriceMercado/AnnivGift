@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Love Puzzle 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #fff7fa,
+        #ffe8f1,
+        #fff3f8
+    );
+
+    overflow:hidden;
+}
+
+.hearts{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.heart{
+    position:absolute;
+    animation:float linear infinite;
+    opacity:.3;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(110vh);
+    }
+    to{
+        transform:translateY(-120px);
+    }
+}
+
+.title{
+    font-family:'Great Vibes',cursive;
+    color:#ff4f8b;
+    font-size:clamp(3rem,8vw,5rem);
+    margin-bottom:10px;
+    text-align:center;
+}
+
+.subtitle{
+    color:#777;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+#puzzle{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:4px;
+
+    width:min(90vw,450px);
+    height:min(90vw,450px);
+
+    background:white;
+    padding:8px;
+    border-radius:20px;
+
+    box-shadow:
+        0 15px 40px rgba(255,79,139,.25);
+}
+
+.tile{
+    border-radius:10px;
+    cursor:pointer;
+
+    background-image:url("ghenica.jpg");
+    background-size:300% 300%;
+    background-repeat:no-repeat;
+
+    transition:.2s;
+}
+
+.tile:hover{
+    transform:scale(.97);
+}
+
+.empty{
+    background:white;
+    box-shadow: inset 0 0 10px rgba(0,0,0,.1);
+}
+
+.message{
+    margin-top:20px;
+    color:#ff4f8b;
+    font-weight:600;
+    text-align:center;
+}
+
+</style>
+</head>
+<body>
+
+<div class="hearts">
+    <div class="heart" style="left:10%;font-size:24px;animation-duration:12s;">💖</div>
+    <div class="heart" style="left:25%;font-size:18px;animation-duration:15s;">💕</div>
+    <div class="heart" style="left:50%;font-size:26px;animation-duration:10s;">💖</div>
+    <div class="heart" style="left:75%;font-size:22px;animation-duration:18s;">💕</div>
+    <div class="heart" style="left:90%;font-size:20px;animation-duration:13s;">💖</div>
+</div>
+
+<h1 class="title">Love Puzzle 💖</h1>
+
+<p class="subtitle">
+Arrange Ghenica's photo and unlock Maurice's surprise ✨
+</p>
+
+<div id="puzzle"></div>
+
+<div class="message">
+Tap or click the piece beside the empty space 💕
+</div>
+
+<script>
+
+const puzzle = document.getElementById("puzzle");
+
+const solved = [0,1,2,3,4,5,6,7,null];
+let tiles = [...solved];
+
+// SOLVABLE SHUFFLE
+for(let i=0;i<150;i++){
+
+    const empty = tiles.indexOf(null);
+    const moves = [];
+
+    if(empty % 3 !== 0) moves.push(empty - 1);
+    if(empty % 3 !== 2) moves.push(empty + 1);
+    if(empty > 2) moves.push(empty - 3);
+    if(empty < 6) moves.push(empty + 3);
+
+    const randomMove =
+    moves[Math.floor(Math.random()*moves.length)];
+
+    [tiles[empty],tiles[randomMove]] =
+    [tiles[randomMove],tiles[empty]];
+}
+
+render();
+
+function render(){
+
+    puzzle.innerHTML = "";
+
+    tiles.forEach((value,index)=>{
+
+        const tile = document.createElement("div");
+
+        tile.classList.add("tile");
+
+        if(value === null){
+
+            tile.classList.add("empty");
+
+        }else{
+
+            const row = Math.floor(value / 3);
+            const col = value % 3;
+
+            tile.style.backgroundPosition =
+            `${col * 50}% ${row * 50}%`;
+
+        }
+
+        tile.addEventListener("click",()=>{
+            move(index);
+        });
+
+        puzzle.appendChild(tile);
+
+    });
+
+}
+
+function move(index){
+
+    const empty = tiles.indexOf(null);
+
+    const row1 = Math.floor(index/3);
+    const col1 = index%3;
+
+    const row2 = Math.floor(empty/3);
+    const col2 = empty%3;
+
+    const adjacent =
+    Math.abs(row1-row2)+Math.abs(col1-col2)===1;
+
+    if(adjacent){
+
+        [tiles[index],tiles[empty]] =
+        [tiles[empty],tiles[index]];
+
+        render();
+
+        checkWin();
+    }
+}
+
+function checkWin(){
+
+    const won =
+    JSON.stringify(tiles) === JSON.stringify(solved);
+
+    if(won){
+
+        setTimeout(()=>{
+
+            alert("Yay! You completed the puzzle my love! 💖");
+
+            window.location.href="Message.html";
+
+        },500);
+
+    }
+}
+
+</script>
+
+</body>
+</html>
